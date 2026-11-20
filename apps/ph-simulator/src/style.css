@@ -1,0 +1,36 @@
+:root {
+  --ink: #16232d; --bench: #e8edef; --glass: #f8fafb; --line: #b9c5cb; --muted: #4a5b66; --focus: #2a6fc2;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bench); color: var(--ink);
+  font: 1rem/1.55 "Avenir Next", "Segoe UI", system-ui, sans-serif; }
+main { max-width: 56rem; margin: 0 auto; padding: 1.25rem 1.25rem 3rem; }
+.back { color: var(--muted); font-size: .9rem; }
+h1 { font-size: clamp(1.75rem, 5vw, 2.5rem); margin: .5rem 0 1.5rem; line-height: 1.1; }
+h2 { font-size: 1.1rem; margin: 2rem 0 .5rem; }
+.grid { display: grid; gap: 2rem; }
+@media (min-width: 760px) { .grid { grid-template-columns: 20rem 1fr; align-items: start; } }
+
+.bench svg { width: 100%; max-width: 20rem; display: block; margin: 0 auto; }
+#liquid { transition: fill .2s; }
+.glass { fill: none; stroke: var(--ink); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.marks path { stroke: var(--ink); stroke-width: 2; opacity: .6; }
+.scale { position: relative; margin-top: 1rem; }
+#bar { height: 14px; border-radius: 7px; }
+#pointer { position: absolute; top: -6px; width: 4px; height: 26px; margin-left: -2px; background: var(--ink); border-radius: 2px; }
+.ends { display: flex; justify-content: space-between; font-size: .85rem; color: var(--muted); margin-top: .35rem; }
+
+.reading { font-size: 1.25rem; margin: 0; color: var(--muted); }
+output { font-size: clamp(3.5rem, 12vw, 6rem); font-weight: 600; line-height: 1; color: var(--ink);
+  font-variant-numeric: tabular-nums; margin-left: .25rem; }
+.verdict { font-size: 1.25rem; font-weight: 600; margin: .25rem 0 1.5rem; }
+label { display: block; font-weight: 600; margin: 1rem 0 .35rem; }
+select { width: 100%; font: inherit; padding: .6rem .5rem; border: 1px solid var(--line); border-radius: 6px; background: var(--glass); color: var(--ink); }
+input[type=range] { width: 100%; height: 2.25rem; accent-color: var(--ink); }
+.note { color: var(--muted); font-size: .9rem; margin: .35rem 0 0; }
+ol { padding-left: 1.25rem; } li { margin-bottom: .4rem; }
+details { border-top: 1px solid var(--line); padding-top: .75rem; }
+summary { cursor: pointer; font-weight: 600; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { #liquid { transition: none; } }

@@ -1,0 +1,12 @@
+{
+  "name": "chem-lab",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@9.15.0",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "build": "node scripts/build-all.mjs",
+    "test": "pnpm -r --if-present test",
+    "new-app": "node scripts/new-app.mjs"
+  }
+}

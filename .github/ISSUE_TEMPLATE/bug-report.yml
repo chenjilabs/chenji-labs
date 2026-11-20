@@ -1,0 +1,17 @@
+name: Bug report
+description: Something is wrong or broken in an experiment
+labels: [bug]
+body:
+  - type: input
+    id: app
+    attributes: { label: Which experiment? }
+    validations: { required: true }
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+      description: If a number or result looks chemically wrong, include the settings you used and the value you expected.
+    validations: { required: true }
+  - type: input
+    id: device
+    attributes: { label: Device and browser, placeholder: Android phone, Chrome }

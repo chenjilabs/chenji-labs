@@ -1,0 +1,25 @@
+name: Experiment idea
+description: Suggest a chemistry concept to build
+labels: [new-experiment]
+body:
+  - type: input
+    id: concept
+    attributes: { label: Concept, placeholder: Le Chatelier's principle }
+    validations: { required: true }
+  - type: dropdown
+    id: level
+    attributes:
+      label: Level
+      options: [Secondary school, Pre-university, University]
+    validations: { required: true }
+  - type: textarea
+    id: interaction
+    attributes:
+      label: What should students be able to change and observe?
+    validations: { required: true }
+  - type: checkboxes
+    id: help
+    attributes:
+      label: Contributing
+      options:
+        - label: I would like to build this myself

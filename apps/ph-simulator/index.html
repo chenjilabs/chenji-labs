@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>pH simulator</title>
+</head>
+<body>
+  <main>
+    <a class="back" href="../">All experiments</a>
+    <h1>pH simulator</h1>
+    <div class="grid">
+      <section class="bench" aria-label="Beaker and pH scale">
+        <svg id="beaker" viewBox="0 0 200 240" role="img" aria-label="Beaker of solution coloured by pH">
+          <path id="liquid" d="M42 90 H158 V208 Q158 223 143 223 H57 Q42 223 42 208 Z"/>
+          <path class="glass" d="M40 20 V208 Q40 225 57 225 H143 Q160 225 160 208 V20" />
+          <g class="marks"><path d="M40 70h14M40 110h10M40 150h14M40 190h10"/></g>
+        </svg>
+        <div class="scale" aria-hidden="true"><div id="bar"></div><div id="pointer"></div></div>
+        <div class="ends" aria-hidden="true"><span>0 acidic</span><span>7</span><span>basic 14</span></div>
+      </section>
+
+      <section class="controls">
+        <p class="reading">pH <output id="ph" aria-live="polite">7.00</output></p>
+        <p id="verdict" class="verdict"></p>
+
+        <label for="substance">Substance</label>
+        <select id="substance"></select>
+        <p id="strength" class="note"></p>
+
+        <label for="conc">Concentration: <strong id="concText"></strong> mol/L</label>
+        <input id="conc" type="range" min="-6" max="0" step="0.25" value="-1">
+        <p class="note">Assumes 25 °C, one substance dissolved in pure water.</p>
+
+        <h2>What to try</h2>
+        <ol>
+          <li>Pick 0.1 mol/L hydrochloric acid, then switch to 0.1 mol/L acetic acid. Why is the pH different?</li>
+          <li>Dilute hydrochloric acid by a factor of 10. How much does the pH change?</li>
+          <li>Do the same with acetic acid. Is the change the same?</li>
+        </ol>
+        <details>
+          <summary>Check your thinking</summary>
+          <p>Hydrochloric acid is a strong acid, so it dissociates fully and the pH rises by 1 for every tenfold dilution. Acetic acid is weak: it dissociates only partly, and dilution lets more of it dissociate, so the pH rises by about 0.5.</p>
+        </details>
+      </section>
+    </div>
+  </main>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
