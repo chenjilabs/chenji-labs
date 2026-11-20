@@ -1,8 +1,12 @@
-# Chem Lab
+# Chenji Labs
 
-Interactive chemistry experiments that run in the browser, so students can change a setting and see what happens. Every app is a small, static web page. All apps live in this one repository and are published together on GitHub Pages.
+**The future of digital science labs.**
 
-Live site: `https://<username>.github.io/<repo-name>/`
+Free, open source simulations that let learners run science practicals in the browser: change a setting and see what happens. We start with chemistry, with a focus on physical chemistry, and will grow into the other physical sciences. Every experiment is a small, static web page. All experiments live in this one repository and are published together on GitHub Pages.
+
+Live site: https://chenjilabs.github.io/chenji-labs/
+
+Where the project is going: [docs/PRD.md](docs/PRD.md).
 
 ## Run it locally
 
