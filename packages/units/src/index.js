@@ -1,7 +1,10 @@
 // Measurement standards: constants, unit conversions and number formatting.
 // Pure: no DOM, no browser APIs. Depends on nothing.
 
-/** Molar gas constant, J/(mol·K) (CODATA 2018 exact value, from NA × k). */
+/**
+ * Molar gas constant, J/(mol·K), rounded to 10 significant figures. Since the
+ * 2019 SI redefinition R = NA × k is exact: 8.31446261815324 J/(mol·K).
+ */
 export const R = 8.314462618;
 
 /** 0 °C in kelvin. */
