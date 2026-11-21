@@ -38,11 +38,12 @@ export function judge(options, selected) {
  */
 export function slider(input, { format = String, onInput } = {}) {
   const display = document.querySelector(`[data-value-for="${input.id}"]`);
-  const refresh = () => {
-    const text = format(Number(input.value));
+  const show = (v) => {
+    const text = format(v);
     if (display) display.textContent = text;
     input.setAttribute('aria-valuetext', text);
   };
+  const refresh = () => show(Number(input.value));
   input.addEventListener('input', () => {
     refresh();
     onInput?.(Number(input.value));
@@ -52,6 +53,8 @@ export function slider(input, { format = String, onInput } = {}) {
     get value() { return Number(input.value); },
     set value(v) { input.value = String(v); refresh(); },
     refresh,
+    /** Shows an exact value (e.g. a computed one) that the slider's step would round. */
+    show,
     set disabled(d) { input.disabled = d; },
   };
 }
