@@ -34,7 +34,8 @@ apps/
   _template/      copied by `pnpm new-app` (never built)
   ph-simulator/   one folder per experiment
 packages/
-  chem-core/      science models and datasets (elements); no page code
+  chem-core/      science models and datasets (elements, formulas); no page code
+  reagents/       the chemical store: reagent data, indicators, hazards
 scripts/          build-all and new-app helpers
 .github/          CI, deploy, PR and issue templates, CODEOWNERS
 ```

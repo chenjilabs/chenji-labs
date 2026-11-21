@@ -37,6 +37,18 @@ element(26).symbol;      // 'Fe'
 2 * atomicWeight('H') + atomicWeight('O'); // 18.015 g/mol
 ```
 
+## Formulas: [`src/formula.js`](src/formula.js)
+
+```js
+import { parseFormula, molarMass, toDisplay } from '@chenji/chem-core/formula';
+
+parseFormula('Al2(SO4)3');  // Map { Al → 2, S → 3, O → 12 }
+molarMass('CuSO4·5H2O');    // 249.677 g/mol (not rounded; round for display)
+toDisplay('CuSO4.5H2O');    // 'CuSO₄·5H₂O'
+```
+
+The parser accepts element symbols, counts, nested `()` and `[]` groups, and hydrates joined with `·`, `.` or `*` (`CuSO4·5H2O`). It rejects unknown elements, zero counts, unbalanced brackets and charges (`Na+`) with a `SyntaxError` that gives the position of the problem.
+
 ## Changing a dataset
 
 1. Edit the entry and cite the source you checked it against.

@@ -1,0 +1,286 @@
+{
+  "dataset": "reagents",
+  "version": 1,
+  "description": "The chemical store: the reagents the first practicals need, with formula, appearance, acid-base data, indicator colours and hazard pictograms.",
+  "conventions": {
+    "formula": "Plain-text formula of the substance as it is used, parsed by chem-core. Molar mass and the display form (with subscripts) are computed from it, never stored. null only for mixtures.",
+    "appearance": "Always written in words, so no result depends on colour alone. displayColour is an approximate sRGB colour for drawing, or null for colourless and transparent.",
+    "acidBase": "pKa values belong to the acid form (the conjugate acid for a base), at 25 °C, in order of dissociation. null marks a step that is complete in water (a strong acid). Strong bases list no pKa.",
+    "indicator": "scale lists the colour at increasing pH. Between two points the colour changes gradually; below the first or above the last point it stays the same.",
+    "hazards": "GHS pictograms for the form named in appliesTo, usually the substance as supplied. Dilute lab solutions often carry fewer pictograms or none. This is teaching data, not a safety data sheet: in a real lab, follow the supplier's SDS.",
+    "review": "Every entry starts as \"needs-review\". A chemistry reviewer changes it to \"reviewed\" after checking it against the sources."
+  },
+  "ghs": {
+    "GHS01": { "name": "Exploding bomb", "meaning": "Explosive" },
+    "GHS02": { "name": "Flame", "meaning": "Flammable" },
+    "GHS03": { "name": "Flame over circle", "meaning": "Oxidising" },
+    "GHS04": { "name": "Gas cylinder", "meaning": "Gas under pressure" },
+    "GHS05": { "name": "Corrosion", "meaning": "Corrosive to skin, eyes or metals" },
+    "GHS06": { "name": "Skull and crossbones", "meaning": "Acutely toxic" },
+    "GHS07": { "name": "Exclamation mark", "meaning": "Harmful or irritant" },
+    "GHS08": { "name": "Health hazard", "meaning": "Serious longer-term health hazard" },
+    "GHS09": { "name": "Environment", "meaning": "Toxic to aquatic life" }
+  },
+  "sources": {
+    "iupac-pka": {
+      "title": "IUPAC Digitized pKa Dataset",
+      "publisher": "International Union of Pure and Applied Chemistry",
+      "url": "https://github.com/IUPAC/Dissociation-Constants"
+    },
+    "echa-cl": {
+      "title": "C&L Inventory (harmonised and notified GHS classifications)",
+      "publisher": "European Chemicals Agency",
+      "url": "https://echa.europa.eu/information-on-chemicals/cl-inventory-database"
+    },
+    "pubchem-hydrochloric-acid": { "title": "PubChem: Hydrochloric acid", "publisher": "NCBI", "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Hydrochloric-Acid" },
+    "pubchem-sulfuric-acid": { "title": "PubChem: Sulfuric acid", "publisher": "NCBI", "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Sulfuric-Acid" },
+    "pubchem-acetic-acid": { "title": "PubChem: Acetic acid", "publisher": "NCBI", "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Acetic-Acid" },
+    "pubchem-sodium-hydroxide": { "title": "PubChem: Sodium hydroxide", "publisher": "NCBI", "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Sodium-Hydroxide" },
+    "pubchem-ammonia": { "title": "PubChem: Ammonia", "publisher": "NCBI", "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Ammonia" },
+    "pubchem-sodium-carbonate": { "title": "PubChem: Sodium carbonate", "publisher": "NCBI", "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Sodium-Carbonate" },
+    "pubchem-sodium-thiosulfate": { "title": "PubChem: Sodium thiosulfate", "publisher": "NCBI", "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Sodium-Thiosulfate" },
+    "pubchem-magnesium": { "title": "PubChem: Magnesium", "publisher": "NCBI", "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Magnesium" },
+    "pubchem-copper-sulfate": { "title": "PubChem: Copper(II) sulfate", "publisher": "NCBI", "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Cupric-Sulfate" },
+    "pubchem-zinc-sulfate": { "title": "PubChem: Zinc sulfate", "publisher": "NCBI", "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Zinc-Sulfate" },
+    "pubchem-copper": { "title": "PubChem: Copper", "publisher": "NCBI", "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Copper" },
+    "pubchem-zinc": { "title": "PubChem: Zinc", "publisher": "NCBI", "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Zinc" },
+    "pubchem-water": { "title": "PubChem: Water", "publisher": "NCBI", "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Water" },
+    "pubchem-phenolphthalein": { "title": "PubChem: Phenolphthalein", "publisher": "NCBI", "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Phenolphthalein" },
+    "pubchem-methyl-orange": { "title": "PubChem: Methyl orange", "publisher": "NCBI", "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Methyl-Orange" }
+  },
+  "reagents": [
+    {
+      "id": "hcl",
+      "name": "Hydrochloric acid",
+      "formula": "HCl",
+      "state": "aqueous",
+      "appearance": "Colourless solution",
+      "displayColour": null,
+      "acidBase": { "role": "acid", "strength": "strong", "pKa": [null] },
+      "indicator": null,
+      "hazards": { "appliesTo": "Concentrated acid as supplied (about 36%)", "ghs": ["GHS05", "GHS07"] },
+      "sources": ["pubchem-hydrochloric-acid", "echa-cl"],
+      "review": "needs-review"
+    },
+    {
+      "id": "h2so4",
+      "name": "Sulfuric acid",
+      "formula": "H2SO4",
+      "state": "aqueous",
+      "appearance": "Colourless solution",
+      "displayColour": null,
+      "acidBase": { "role": "acid", "strength": "strong", "pKa": [null, 1.99] },
+      "indicator": null,
+      "hazards": { "appliesTo": "Concentrated acid as supplied (about 98%)", "ghs": ["GHS05"] },
+      "sources": ["pubchem-sulfuric-acid", "iupac-pka", "echa-cl"],
+      "review": "needs-review"
+    },
+    {
+      "id": "ch3cooh",
+      "name": "Ethanoic acid",
+      "otherNames": ["acetic acid"],
+      "formula": "CH3COOH",
+      "state": "aqueous",
+      "appearance": "Colourless solution that smells of vinegar",
+      "displayColour": null,
+      "acidBase": { "role": "acid", "strength": "weak", "pKa": [4.76] },
+      "indicator": null,
+      "hazards": { "appliesTo": "Glacial (pure) ethanoic acid as supplied", "ghs": ["GHS02", "GHS05"] },
+      "sources": ["pubchem-acetic-acid", "iupac-pka", "echa-cl"],
+      "review": "needs-review"
+    },
+    {
+      "id": "naoh",
+      "name": "Sodium hydroxide",
+      "formula": "NaOH",
+      "state": "aqueous",
+      "appearance": "Colourless solution; the solid is white pellets",
+      "displayColour": null,
+      "acidBase": { "role": "base", "strength": "strong" },
+      "indicator": null,
+      "hazards": { "appliesTo": "Solid pellets, and solutions stronger than about 0.5 mol/dm³", "ghs": ["GHS05"] },
+      "sources": ["pubchem-sodium-hydroxide", "echa-cl"],
+      "review": "needs-review"
+    },
+    {
+      "id": "nh3-aq",
+      "name": "Aqueous ammonia",
+      "otherNames": ["ammonia solution"],
+      "formula": "NH3",
+      "state": "aqueous",
+      "appearance": "Colourless solution with a sharp, choking smell",
+      "displayColour": null,
+      "acidBase": { "role": "base", "strength": "weak", "pKa": [9.25], "conjugateAcid": "NH4+" },
+      "indicator": null,
+      "hazards": { "appliesTo": "Concentrated solution as supplied (about 25 to 35%)", "ghs": ["GHS05", "GHS07", "GHS09"] },
+      "sources": ["pubchem-ammonia", "iupac-pka", "echa-cl"],
+      "review": "needs-review"
+    },
+    {
+      "id": "na2co3",
+      "name": "Sodium carbonate",
+      "formula": "Na2CO3",
+      "state": "solid",
+      "appearance": "White powder that dissolves to give a colourless solution",
+      "displayColour": null,
+      "acidBase": { "role": "base", "strength": "weak", "pKa": [6.35, 10.33], "conjugateAcid": "H2CO3" },
+      "indicator": null,
+      "hazards": { "appliesTo": "Anhydrous solid as supplied", "ghs": ["GHS07"] },
+      "sources": ["pubchem-sodium-carbonate", "iupac-pka", "echa-cl"],
+      "review": "needs-review"
+    },
+    {
+      "id": "na2s2o3",
+      "name": "Sodium thiosulfate",
+      "formula": "Na2S2O3",
+      "state": "aqueous",
+      "appearance": "Colourless solution; usually supplied as colourless crystals of the pentahydrate, Na₂S₂O₃·5H₂O",
+      "displayColour": null,
+      "acidBase": null,
+      "indicator": null,
+      "hazards": { "appliesTo": "Pentahydrate crystals as supplied", "ghs": [] },
+      "sources": ["pubchem-sodium-thiosulfate", "echa-cl"],
+      "review": "needs-review"
+    },
+    {
+      "id": "mg",
+      "name": "Magnesium ribbon",
+      "formula": "Mg",
+      "state": "solid",
+      "appearance": "Shiny silver-grey metal ribbon that dulls in air",
+      "displayColour": "#b8bcc2",
+      "acidBase": null,
+      "indicator": null,
+      "hazards": { "appliesTo": "Ribbon as supplied", "ghs": ["GHS02"] },
+      "sources": ["pubchem-magnesium", "echa-cl"],
+      "review": "needs-review"
+    },
+    {
+      "id": "cuso4",
+      "name": "Copper(II) sulfate",
+      "formula": "CuSO4",
+      "state": "aqueous",
+      "appearance": "Blue solution; supplied as blue crystals of the pentahydrate, CuSO₄·5H₂O",
+      "displayColour": "#2f7fd1",
+      "acidBase": null,
+      "indicator": null,
+      "hazards": { "appliesTo": "Pentahydrate crystals as supplied", "ghs": ["GHS07", "GHS09"] },
+      "sources": ["pubchem-copper-sulfate", "echa-cl"],
+      "review": "needs-review"
+    },
+    {
+      "id": "znso4",
+      "name": "Zinc sulfate",
+      "formula": "ZnSO4",
+      "state": "aqueous",
+      "appearance": "Colourless solution; supplied as colourless crystals of the heptahydrate, ZnSO₄·7H₂O",
+      "displayColour": null,
+      "acidBase": null,
+      "indicator": null,
+      "hazards": { "appliesTo": "Heptahydrate crystals as supplied", "ghs": ["GHS05", "GHS07", "GHS09"] },
+      "sources": ["pubchem-zinc-sulfate", "echa-cl"],
+      "review": "needs-review"
+    },
+    {
+      "id": "cu",
+      "name": "Copper",
+      "formula": "Cu",
+      "state": "solid",
+      "appearance": "Shiny pinkish-brown metal (foil, turnings or an electrode)",
+      "displayColour": "#b87333",
+      "acidBase": null,
+      "indicator": null,
+      "hazards": { "appliesTo": "Foil, turnings or electrode", "ghs": [] },
+      "sources": ["pubchem-copper", "echa-cl"],
+      "review": "needs-review"
+    },
+    {
+      "id": "zn",
+      "name": "Zinc",
+      "formula": "Zn",
+      "state": "solid",
+      "appearance": "Blue-grey metal (granules, foil or an electrode)",
+      "displayColour": "#8a9597",
+      "acidBase": null,
+      "indicator": null,
+      "hazards": { "appliesTo": "Granules as supplied (zinc powder also carries GHS02)", "ghs": ["GHS09"] },
+      "sources": ["pubchem-zinc", "echa-cl"],
+      "review": "needs-review"
+    },
+    {
+      "id": "water",
+      "name": "Distilled water",
+      "formula": "H2O",
+      "state": "liquid",
+      "appearance": "Colourless liquid",
+      "displayColour": null,
+      "acidBase": null,
+      "indicator": null,
+      "hazards": { "appliesTo": "Distilled water", "ghs": [] },
+      "sources": ["pubchem-water"],
+      "review": "needs-review"
+    },
+    {
+      "id": "phenolphthalein",
+      "name": "Phenolphthalein",
+      "formula": "C20H14O4",
+      "state": "aqueous",
+      "appearance": "Colourless indicator solution (made up in ethanol)",
+      "displayColour": null,
+      "acidBase": null,
+      "indicator": {
+        "scale": [
+          { "pH": 8.2, "name": "colourless", "hex": null },
+          { "pH": 10.0, "name": "pink", "hex": "#e0218a" }
+        ],
+        "note": "Fades back to colourless in very strongly basic solution, above about pH 13."
+      },
+      "hazards": { "appliesTo": "Indicator solution in ethanol as supplied", "ghs": ["GHS02", "GHS08"] },
+      "sources": ["pubchem-phenolphthalein", "echa-cl"],
+      "review": "needs-review"
+    },
+    {
+      "id": "methyl-orange",
+      "name": "Methyl orange",
+      "formula": "C14H14N3NaO3S",
+      "state": "aqueous",
+      "appearance": "Orange indicator solution",
+      "displayColour": "#f08a24",
+      "acidBase": null,
+      "indicator": {
+        "scale": [
+          { "pH": 3.1, "name": "red", "hex": "#d7261e" },
+          { "pH": 4.4, "name": "yellow", "hex": "#f2c31b" }
+        ]
+      },
+      "hazards": { "appliesTo": "Solid dye as supplied", "ghs": ["GHS06"] },
+      "sources": ["pubchem-methyl-orange", "echa-cl"],
+      "review": "needs-review"
+    },
+    {
+      "id": "universal-indicator",
+      "name": "Universal indicator",
+      "formula": null,
+      "mixture": true,
+      "state": "aqueous",
+      "appearance": "Indicator solution whose colour shows the pH, from red (strongly acidic) through green (neutral) to violet (strongly basic)",
+      "displayColour": "#4fb34a",
+      "acidBase": null,
+      "indicator": {
+        "scale": [
+          { "pH": 0, "name": "red", "hex": "#e11d2e" },
+          { "pH": 3, "name": "orange", "hex": "#f6a21e" },
+          { "pH": 6, "name": "yellow", "hex": "#e8d92a" },
+          { "pH": 7, "name": "green", "hex": "#4fb34a" },
+          { "pH": 9, "name": "blue", "hex": "#2a6fc2" },
+          { "pH": 11, "name": "indigo", "hex": "#5b3fb0" },
+          { "pH": 14, "name": "violet", "hex": "#7a2a8f" }
+        ],
+        "note": "A mixture of several indicators. Exact colours vary between manufacturers; read the chart supplied with the bottle."
+      },
+      "hazards": { "appliesTo": "Indicator solution in ethanol as supplied", "ghs": ["GHS02"] },
+      "sources": ["echa-cl"],
+      "review": "needs-review"
+    }
+  ]
+}
