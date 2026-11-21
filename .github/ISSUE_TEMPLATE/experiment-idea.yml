@@ -10,7 +10,7 @@ body:
     id: level
     attributes:
       label: Level
-      options: [Secondary school, Pre-university, University]
+      options: [Junior secondary, Senior secondary, First-year university]
     validations: { required: true }
   - type: textarea
     id: interaction

@@ -1,5 +1,3 @@
 packages:
   - "apps/*/*"
-  - "!apps/_template"
-  - "!apps/_template/**"
   - "packages/*"

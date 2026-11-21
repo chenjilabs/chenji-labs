@@ -3,8 +3,10 @@
 //   2. validates the metadata (scripts/meta.mjs) and stops on any error
 //   3. builds each experiment, drafts included, into dist/<subject>/<name>/
 //   4. writes dist/index.html, the landing page, from the published experiments
+//   5. runs the build checks in scripts/checks.mjs and stops if any fails
 import { execSync } from 'node:child_process';
 import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { checkSite, formatSizes } from './checks.mjs';
 import { landing } from './landing.mjs';
 import { validateApps } from './meta.mjs';
 
@@ -51,3 +53,9 @@ writeFileSync('dist/index.html', landing(apps));
 writeFileSync('dist/.nojekyll', '');
 const drafts = apps.filter((a) => a.status === 'draft').length;
 console.log(`Built ${apps.length} experiment(s) into dist/${drafts ? ` (${drafts} draft, not listed)` : ''}.`);
+
+// 5. Checks: size budget, no remote requests, required sections, noscript
+const { rows, failures } = checkSite('dist', apps);
+console.log(`First-load size (HTML + JS + CSS):\n${formatSizes(rows)}`);
+if (failures.length) fail([`${failures.length} check(s) failed:`, ...failures]);
+console.log('Checks passed: size budget, no remote requests, required sections, noscript.');

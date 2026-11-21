@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>__APP_TITLE__ · Chenji Labs</title>
+  <meta name="description" content="One sentence on what learners can change and observe here.">
+</head>
+<body>
+  <!--
+    Every section below is static HTML so it reads without JavaScript.
+    The build fails if a required data-section is missing (scripts/checks.mjs).
+    Replace every TODO before setting "status": "published" in app.json.
+  -->
+  <main>
+    <a class="back" href="../../" data-back>All experiments</a>
+    <h1>__APP_TITLE__</h1>
+
+    <section data-section="aim">
+      <h2 class="visually-hidden">Aim</h2>
+      <p class="aim"><strong>Aim:</strong> TODO: one sentence on what the learner will find out.</p>
+    </section>
+
+    <noscript>
+      <p class="noscript">The simulation needs JavaScript, which is turned off or not supported in this browser. You can still read the aim, the conditions, the prompts and the science below.</p>
+    </noscript>
+
+    <section class="controls" aria-label="Controls and reading">
+      <label for="x">TODO control: <strong data-value-for="x"></strong></label>
+      <input id="x" type="range" min="1" max="10" step="1" value="5">
+      <p class="reading">Result: <output id="result">0</output></p>
+    </section>
+
+    <section data-section="conditions">
+      <h2>Conditions</h2>
+      <ul>
+        <li>TODO: every condition the model assumes, such as the temperature or "ideal gas".</li>
+      </ul>
+    </section>
+
+    <section data-section="what-to-try">
+      <h2>What to try</h2>
+      <ol>
+        <li>
+          <p>TODO: a prompt the learner can act on.</p>
+          <p data-answer>TODO: the short answer, revealed after they try.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section data-section="check-understanding">
+      <h2>Check your understanding</h2>
+      <fieldset data-question>
+        <legend>TODO: a question that tests the concept.</legend>
+        <ul>
+          <li><label><input type="radio" name="q1" data-correct> TODO: the right answer</label><p class="why" data-why>TODO: why it is right.</p></li>
+          <li><label><input type="radio" name="q1"> TODO: a common misconception</label><p class="why" data-why>TODO: why it is wrong.</p></li>
+        </ul>
+      </fieldset>
+    </section>
+
+    <section data-section="science">
+      <h2>Science behind this</h2>
+      <div data-part="equation"><p class="equation">TODO: the key equation</p></div>
+      <div data-part="assumptions"><h3>Assumptions</h3><ul><li>TODO</li></ul></div>
+      <div data-part="limits"><h3>Limits</h3><p>TODO: where the model stops being true.</p></div>
+      <div data-part="sources"><h3>Sources</h3><p>Source to be added by the project lead</p></div>
+    </section>
+
+    <section data-section="next-steps">
+      <h2>Next steps</h2>
+      <p><a href="../../">Back to all experiments</a></p>
+    </section>
+  </main>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
