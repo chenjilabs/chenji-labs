@@ -9,6 +9,10 @@ importers:
   .: {}
 
   apps/ph-simulator:
+    dependencies:
+      '@chenji/reagents':
+        specifier: workspace:*
+        version: link:../../packages/reagents
     devDependencies:
       vite:
         specifier: ^8.3.8

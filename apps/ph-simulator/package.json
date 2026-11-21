@@ -8,6 +8,9 @@
     "build": "vite build",
     "test": "node --test"
   },
+  "dependencies": {
+    "@chenji/reagents": "workspace:*"
+  },
   "devDependencies": {
     "vite": "^8.3.8"
   }
