@@ -1,29 +1,28 @@
+import '@chenjilabs/ui/tokens.css';
+import '@chenjilabs/ui/ui.css';
 import './style.css';
+import { backLink, readout, scienceBox, selfCheck, slider, whatToTry } from '@chenjilabs/ui';
+import { formatScientific } from '@chenjilabs/units';
 import { SUBSTANCES, pH } from './chem.js';
 import { colorAt, gradient } from './indicator.js';
 
 const $ = (id) => document.getElementById(id);
+const section = (name) => document.querySelector(`[data-section="${name}"]`);
 const select = $('substance');
-const slider = $('conc');
 
 SUBSTANCES.forEach((s) => select.add(new Option(`${s.name} (${s.formula})`, s.id)));
 select.value = 'hcl';
 $('bar').style.background = gradient();
 
-const SUP = { '-': '⁻', 0: '⁰', 1: '¹', 2: '²', 3: '³', 4: '⁴', 5: '⁵', 6: '⁶', 7: '⁷', 8: '⁸', 9: '⁹' };
-function format(c) {
-  if (c >= 0.001) return String(Number(c.toPrecision(2)));
-  const [m, e] = c.toExponential(1).split('e');
-  return `${m} × 10${[...String(Number(e))].map((ch) => SUP[ch]).join('')}`;
-}
+const conc = slider($('conc'), { format: (v) => formatScientific(10 ** v), onInput: update });
+const phReading = readout($('ph'));
 
 function update() {
   const s = SUBSTANCES.find((x) => x.id === select.value);
-  const c = 10 ** Number(slider.value);
+  const c = 10 ** conc.value;
   const value = pH(s, c);
 
-  $('concText').textContent = format(c);
-  $('ph').textContent = value.toFixed(2);
+  phReading.set(value.toFixed(2));
   $('liquid').style.fill = colorAt(value);
   $('pointer').style.left = `${(value / 14) * 100}%`;
   $('verdict').textContent = value < 6.5 ? 'Acidic' : value > 7.5 ? 'Basic' : 'Close to neutral';
@@ -34,5 +33,9 @@ function update() {
 }
 
 select.addEventListener('change', update);
-slider.addEventListener('input', update);
 update();
+
+backLink();
+whatToTry(section('what-to-try'));
+selfCheck(section('check-understanding'));
+scienceBox(section('science'));

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>pH simulator · Chenji Labs</title>
+  <meta name="description" content="Change the concentration of an acid or base and see its pH and indicator colour.">
+</head>
+<body>
+  <main>
+    <a class="back" href="../../" data-back>All experiments</a>
+    <h1>pH simulator</h1>
+
+    <section data-section="aim">
+      <h2 class="visually-hidden">Aim</h2>
+      <p class="aim"><strong>Aim:</strong> find out how the pH of an acid or base depends on its concentration, and why a strong and a weak acid at the same concentration have different pH values.</p>
+    </section>
+
+    <noscript>
+      <p class="noscript">The simulation needs JavaScript, which is turned off or not supported in this browser. You can still read the aim, the conditions, the prompts and the science below.</p>
+    </noscript>
+
+    <div class="grid">
+      <section class="bench" aria-label="Beaker and pH scale">
+        <svg id="beaker" viewBox="0 0 200 240" role="img" aria-label="Beaker of solution coloured by pH">
+          <path id="liquid" d="M42 90 H158 V208 Q158 223 143 223 H57 Q42 223 42 208 Z"/>
+          <path class="glass" d="M40 20 V208 Q40 225 57 225 H143 Q160 225 160 208 V20" />
+          <g class="marks"><path d="M40 70h14M40 110h10M40 150h14M40 190h10"/></g>
+        </svg>
+        <div class="scale" aria-hidden="true"><div id="bar"></div><div id="pointer"></div></div>
+        <div class="ends" aria-hidden="true"><span>0 acidic</span><span>7</span><span>basic 14</span></div>
+      </section>
+
+      <section class="controls" aria-label="Controls and reading">
+        <p class="reading">pH <output id="ph">7.00</output></p>
+        <p id="verdict" class="verdict"></p>
+
+        <label for="substance">Substance</label>
+        <select id="substance"></select>
+        <p id="strength" class="note"></p>
+
+        <label for="conc">Concentration: <strong id="concText" data-value-for="conc"></strong> mol/L</label>
+        <input id="conc" type="range" min="-6" max="0" step="0.25" value="-1">
+        <p class="note">Assumes 25 °C, one substance dissolved in pure water.</p>
+      </section>
+    </div>
+
+    <section data-section="conditions">
+      <h2>Conditions</h2>
+      <ul>
+        <li>Temperature 25 °C, so the ionic product of water is K<sub>w</sub> = 1.0 × 10⁻¹⁴.</li>
+        <li>One solute dissolved in pure water.</li>
+        <li>Concentrations are used in place of activities.</li>
+      </ul>
+    </section>
+
+    <section data-section="what-to-try">
+      <h2>What to try</h2>
+      <ol>
+        <li>
+          <p>Pick 0.1 mol/L hydrochloric acid, then switch to 0.1 mol/L ethanoic acid (acetic acid). Why is the pH different?</p>
+          <p data-answer>Hydrochloric acid is a strong acid: it dissociates completely, so [H⁺] is 0.1 mol/L and the pH is 1.00. Ethanoic acid is weak and dissociates only partly, so [H⁺] is much lower and the pH is about 2.88.</p>
+        </li>
+        <li>
+          <p>Dilute hydrochloric acid by a factor of 10. How much does the pH change?</p>
+          <p data-answer>The pH rises by 1. [H⁺] falls by a factor of 10, and pH = −log₁₀[H⁺], so each tenfold dilution adds 1 to the pH.</p>
+        </li>
+        <li>
+          <p>Do the same with ethanoic acid. Is the change the same?</p>
+          <p data-answer>No. The pH rises by only about 0.5. Dilution lets a larger fraction of a weak acid dissociate, which partly makes up for the lower concentration.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section data-section="check-understanding">
+      <h2>Check your understanding</h2>
+      <fieldset data-question>
+        <legend>A solution of hydrochloric acid has pH 2. You dilute it ten times with pure water. What is the new pH?</legend>
+        <ul>
+          <li><label><input type="radio" name="q1" value="1"> 1</label><p class="why" data-why>Diluting lowers [H⁺], so the pH goes up, not down.</p></li>
+          <li><label><input type="radio" name="q1" value="2"> 2</label><p class="why" data-why>Diluting changes [H⁺], so the pH must change too.</p></li>
+          <li><label><input type="radio" name="q1" value="3" data-correct> 3</label><p class="why" data-why>[H⁺] falls tenfold, from 0.01 to 0.001 mol/L, so the pH rises by exactly 1.</p></li>
+          <li><label><input type="radio" name="q1" value="20"> 20</label><p class="why" data-why>The pH scale is logarithmic: a tenfold change in [H⁺] changes the pH by 1, it does not multiply it by 10.</p></li>
+        </ul>
+      </fieldset>
+      <fieldset data-question>
+        <legend>Which has the lower pH: 0.1 mol/L hydrochloric acid or 0.1 mol/L ethanoic acid?</legend>
+        <ul>
+          <li><label><input type="radio" name="q2" value="hcl" data-correct> Hydrochloric acid, because it dissociates completely</label><p class="why" data-why>A strong acid releases all of its H⁺, so at the same concentration it has the higher [H⁺] and the lower pH.</p></li>
+          <li><label><input type="radio" name="q2" value="ethanoic"> Ethanoic acid, because its formula has more hydrogen atoms</label><p class="why" data-why>Only one hydrogen in ethanoic acid is acidic, and it dissociates only partly. The other hydrogens stay bonded to carbon.</p></li>
+          <li><label><input type="radio" name="q2" value="same"> Neither: the same concentration gives the same pH</label><p class="why" data-why>Concentration and strength are different things. Strength is how completely the acid dissociates.</p></li>
+        </ul>
+      </fieldset>
+    </section>
+
+    <section data-section="science">
+      <h2>Science behind this</h2>
+      <div data-part="equation">
+        <p class="equation">pH = −log₁₀[H⁺]</p>
+        <p>The simulator finds [H⁺] from a charge balance that includes the ions from water. For a strong acid at concentration c, [H⁺] = c + K<sub>w</sub>/[H⁺]. For a weak acid, [H⁺] = K<sub>a</sub>c/(K<sub>a</sub> + [H⁺]) + K<sub>w</sub>/[H⁺]. Bases are treated the same way with [OH⁻], and then pH = 14 + log₁₀[OH⁻].</p>
+      </div>
+      <div data-part="assumptions">
+        <h3>Assumptions</h3>
+        <ul>
+          <li>25 °C, so K<sub>w</sub> = 1.0 × 10⁻¹⁴.</li>
+          <li>One solute in pure water.</li>
+          <li>Concentrations are used in place of activities.</li>
+        </ul>
+      </div>
+      <div data-part="limits">
+        <h3>Limits</h3>
+        <p>Concentrated solutions deviate from this model, because the ions interact and their activities differ from their concentrations.</p>
+      </div>
+      <div data-part="sources">
+        <h3>Sources</h3>
+        <p>Source to be added by the project lead</p>
+      </div>
+    </section>
+
+    <section data-section="next-steps">
+      <h2>Next steps</h2>
+      <p><a href="../../">Back to all experiments</a></p>
+    </section>
+  </main>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

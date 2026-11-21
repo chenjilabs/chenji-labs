@@ -8,11 +8,17 @@ importers:
 
   .: {}
 
-  apps/ph-simulator:
+  apps/chemistry/ph-simulator:
     dependencies:
       '@chenjilabs/reagents':
         specifier: workspace:*
-        version: link:../../packages/reagents
+        version: link:../../../packages/reagents
+      '@chenjilabs/ui':
+        specifier: workspace:*
+        version: link:../../../packages/ui
+      '@chenjilabs/units':
+        specifier: workspace:*
+        version: link:../../../packages/units
     devDependencies:
       vite:
         specifier: ^8.3.8
@@ -25,6 +31,8 @@ importers:
       '@chenjilabs/chem-core':
         specifier: workspace:*
         version: link:../chem-core
+
+  packages/ui: {}
 
   packages/units: {}
 

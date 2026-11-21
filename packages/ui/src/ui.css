@@ -1,0 +1,50 @@
+/* Shared page styles for every experiment. Import after tokens.css. */
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bench); color: var(--ink); font: var(--text-base)/var(--leading) var(--font); }
+main { max-width: 56rem; margin: 0 auto; padding: 1.25rem 1.25rem 3rem; }
+.back { color: var(--muted); font-size: .9rem; }
+h1 { font-size: var(--text-h1); margin: .5rem 0 1rem; line-height: 1.1; }
+h2 { font-size: var(--text-h2); margin: 2rem 0 .5rem; }
+a { color: var(--focus); }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.aim { font-size: 1.05rem; max-width: 40rem; margin: 0 0 1.5rem; }
+.noscript { border: 2px solid var(--ink); border-radius: var(--radius); padding: .75rem 1rem; background: var(--glass); }
+.note { color: var(--muted); font-size: .9rem; margin: .35rem 0 0; }
+
+/* Controls */
+label { display: block; font-weight: 600; margin: 1rem 0 .35rem; }
+select { width: 100%; font: inherit; padding: .6rem .5rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--glass); color: var(--ink); }
+input[type=range] { width: 100%; height: 2.25rem; accent-color: var(--ink); }
+input[type=range]:disabled { opacity: .45; }
+button { font: inherit; font-weight: 600; padding: .55rem 1rem; border: 2px solid var(--ink); border-radius: var(--radius); background: var(--glass); color: var(--ink); cursor: pointer; min-height: 2.75rem; }
+button:hover { background: #fff; }
+button:disabled { opacity: .5; cursor: not-allowed; }
+.tag { display: inline-block; font-size: var(--text-sm); font-weight: 600; border: 1px solid var(--ink); border-radius: 999px; padding: 0 .5rem; margin-left: .35rem; }
+
+/* Text sections */
+section[data-section] { max-width: 44rem; }
+ol, ul { padding-left: 1.25rem; }
+li { margin-bottom: .5rem; }
+details { border-top: 1px solid var(--line); padding-top: .5rem; margin-top: .35rem; }
+summary { cursor: pointer; font-weight: 600; }
+
+/* Check your understanding */
+fieldset[data-question] { border: 1px solid var(--line); border-radius: var(--radius); padding: .75rem 1rem 1rem; margin: 0 0 1rem; background: var(--glass); }
+fieldset[data-question] legend { font-weight: 600; padding: 0 .25rem; }
+fieldset[data-question] ul { list-style: none; padding: 0; }
+fieldset[data-question] label { display: flex; gap: .5rem; align-items: baseline; font-weight: 400; margin: .35rem 0; }
+.why { color: var(--muted); margin: 0 0 .5rem 1.6rem; }
+.feedback { font-weight: 600; margin: .75rem 0 0; }
+.feedback.correct { color: var(--good); }
+.feedback.incorrect { color: var(--bad); }
+
+/* Science behind this */
+.equation { font-size: var(--text-lg); font-family: "Cambria Math", "STIX Two Math", serif; margin: .5rem 0; }
+
+/* Data tables (the lab notebook) */
+table.data { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; background: var(--glass); }
+table.data th, table.data td { border: 1px solid var(--line); padding: .35rem .5rem; text-align: right; }
+table.data th { background: var(--bench); text-align: center; }
+.table-wrap { overflow-x: auto; }
