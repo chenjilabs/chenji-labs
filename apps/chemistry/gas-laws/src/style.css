@@ -1,0 +1,16 @@
+/* Gas laws only. Shared tokens and page styles come from @chenjilabs/ui. */
+.lab { display: grid; gap: 1.5rem; }
+@media (min-width: 760px) { .lab { grid-template-columns: minmax(0, 1fr) 20rem; align-items: start; } }
+
+#box { width: 100%; height: auto; display: block; background: var(--glass); border-radius: var(--radius); }
+.view .note { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+
+.modes { border: 1px solid var(--line); border-radius: var(--radius); padding: .5rem .75rem; margin: 0 0 1rem; }
+.modes legend { font-weight: 600; padding: 0 .25rem; }
+.modes label { display: flex; gap: .5rem; align-items: baseline; font-weight: 400; margin: .35rem 0; }
+
+.reading { font-size: var(--text-lg); margin: 0 0 .5rem; color: var(--muted); }
+#P { font-size: clamp(2.25rem, 8vw, 3.25rem); font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+
+.notebook { max-width: 44rem; }
+.notebook button + button { margin-left: .5rem; }

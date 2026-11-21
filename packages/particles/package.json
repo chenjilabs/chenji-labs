@@ -1,0 +1,15 @@
+{
+  "name": "@chenjilabs/particles",
+  "version": "0.0.0",
+  "private": true,
+  "description": "A 2D canvas particle box for concept explorers.",
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./sim": "./src/sim.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}

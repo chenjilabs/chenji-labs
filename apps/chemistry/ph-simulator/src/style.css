@@ -1,0 +1,18 @@
+/* pH simulator only. Shared tokens and page styles come from @chenjilabs/ui. */
+.grid { display: grid; gap: 2rem; }
+@media (min-width: 760px) { .grid { grid-template-columns: 20rem 1fr; align-items: start; } }
+
+.bench svg { width: 100%; max-width: 20rem; display: block; margin: 0 auto; }
+#liquid { transition: fill .2s; }
+.glass { fill: none; stroke: var(--ink); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.marks path { stroke: var(--ink); stroke-width: 2; opacity: .6; }
+.scale { position: relative; margin-top: 1rem; }
+#bar { height: 14px; border-radius: 7px; }
+#pointer { position: absolute; top: -6px; width: 4px; height: 26px; margin-left: -2px; background: var(--ink); border-radius: 2px; }
+.ends { display: flex; justify-content: space-between; font-size: .85rem; color: var(--muted); margin-top: .35rem; }
+
+.reading { font-size: 1.25rem; margin: 0; color: var(--muted); }
+#ph { font-size: clamp(3.5rem, 12vw, 6rem); font-weight: 600; line-height: 1; color: var(--ink);
+  font-variant-numeric: tabular-nums; margin-left: .25rem; }
+.verdict { font-size: 1.25rem; font-weight: 600; margin: .25rem 0 1.5rem; }
+@media (prefers-reduced-motion: reduce) { #liquid { transition: none; } }

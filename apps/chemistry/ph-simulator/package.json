@@ -1,0 +1,19 @@
+{
+  "name": "ph-simulator",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@chenjilabs/reagents": "workspace:*",
+    "@chenjilabs/ui": "workspace:*",
+    "@chenjilabs/units": "workspace:*"
+  },
+  "devDependencies": {
+    "vite": "^8.3.8"
+  }
+}

@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gas laws · Chenji Labs</title>
+  <meta name="description" content="Change the temperature, volume and amount of an ideal gas and find Boyle's, Charles's and Gay-Lussac's laws.">
+</head>
+<body>
+  <main>
+    <a class="back" href="../../" data-back>All experiments</a>
+    <h1>Gas laws</h1>
+
+    <section data-section="aim">
+      <h2 class="visually-hidden">Aim</h2>
+      <p class="aim"><strong>Aim:</strong> find out how the pressure, volume and temperature of a gas are related, by holding one of them constant at a time.</p>
+    </section>
+
+    <noscript>
+      <p class="noscript">The simulation needs JavaScript, which is turned off or not supported in this browser. You can still read the aim, the conditions, the prompts and the science below.</p>
+    </noscript>
+
+    <div class="lab">
+      <section class="view" aria-label="Particle view">
+        <canvas id="box" width="600" height="300" role="img" aria-label="Gas particles in a box"></canvas>
+        <p class="note">Particles are illustrative and not to scale. <button type="button" id="pause" aria-pressed="false">Pause</button></p>
+      </section>
+
+      <section class="controls" aria-label="Controls and readings">
+        <fieldset class="modes">
+          <legend>Law to investigate</legend>
+          <label><input type="radio" name="mode" value="boyle" checked> Boyle's law: change V</label>
+          <label><input type="radio" name="mode" value="gay-lussac"> Gay-Lussac's law: change T</label>
+          <label><input type="radio" name="mode" value="charles"> Charles's law: change T</label>
+        </fieldset>
+
+        <p class="reading">Pressure <output id="P">0</output> kPa <span class="tag" data-tag-for="P"></span></p>
+
+        <label for="T">Temperature: <strong data-value-for="T"></strong> K <span class="tag" data-tag-for="T"></span></label>
+        <input id="T" type="range">
+
+        <label for="V">Volume: <strong data-value-for="V"></strong> L <span class="tag" data-tag-for="V"></span></label>
+        <input id="V" type="range">
+
+        <label for="n">Amount of gas: <strong data-value-for="n"></strong> mol <span class="tag" data-tag-for="n"></span></label>
+        <input id="n" type="range">
+
+        <p id="limit" class="note" aria-live="polite"></p>
+      </section>
+    </div>
+
+    <section class="notebook" aria-labelledby="notebook-title">
+      <h2 id="notebook-title">Results</h2>
+      <p>
+        <button type="button" id="record">Record reading</button>
+        <button type="button" id="clear">Clear</button>
+      </p>
+      <p id="notebook-status" class="note" aria-live="polite">No readings yet.</p>
+      <div class="table-wrap">
+        <table class="data">
+          <thead><tr id="notebook-head"></tr></thead>
+          <tbody id="notebook-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section data-section="conditions">
+      <h2>Conditions</h2>
+      <ul>
+        <li>The gas is ideal: its particles take up no space and do not attract each other.</li>
+        <li>The amount of gas stays fixed unless you change it.</li>
+        <li>Temperature is in kelvin (K = °C + 273.15).</li>
+      </ul>
+    </section>
+
+    <section data-section="what-to-try">
+      <h2>What to try</h2>
+      <ol>
+        <li>
+          <p>Choose Boyle's law. Record readings at 10 L, 20 L and 40 L. What happens to the pressure when the volume doubles? Which column of the table stays the same?</p>
+          <p data-answer>The pressure halves each time the volume doubles. PV stays the same: at constant temperature, pressure is inversely proportional to volume.</p>
+        </li>
+        <li>
+          <p>Choose Charles's law. Record readings at 200 K, 300 K and 400 K. Which column stays the same?</p>
+          <p data-answer>V/T stays the same: at constant pressure, volume is proportional to the kelvin temperature.</p>
+        </li>
+        <li>
+          <p>Choose Gay-Lussac's law and double the temperature from 200 K to 400 K. What happens to the pressure?</p>
+          <p data-answer>The pressure doubles: at constant volume, pressure is proportional to the kelvin temperature. The particles move faster and hit the walls harder and more often.</p>
+        </li>
+        <li>
+          <p>Double the amount of gas in any mode. What changes?</p>
+          <p data-answer>With twice as many particles, the computed quantity doubles: the pressure in Boyle's and Gay-Lussac's modes, or the volume in Charles's mode.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section data-section="check-understanding">
+      <h2>Check your understanding</h2>
+      <fieldset data-question>
+        <legend>A gas in a sealed, rigid container is heated from 300 K to 600 K. What happens to its pressure?</legend>
+        <ul>
+          <li><label><input type="radio" name="q1" value="double" data-correct> It doubles</label><p class="why" data-why>At constant volume and amount, pressure is proportional to the kelvin temperature, and the temperature has doubled.</p></li>
+          <li><label><input type="radio" name="q1" value="half"> It halves</label><p class="why" data-why>Heating makes the particles move faster, so they hit the walls harder: the pressure rises, not falls.</p></li>
+          <li><label><input type="radio" name="q1" value="same"> It stays the same</label><p class="why" data-why>The container is rigid, so the volume is fixed, but the pressure still changes with temperature.</p></li>
+          <li><label><input type="radio" name="q1" value="four"> It becomes four times as large</label><p class="why" data-why>Pressure is proportional to T, not to T². Particle speed goes as √T, but the pressure goes as T.</p></li>
+        </ul>
+      </fieldset>
+      <fieldset data-question>
+        <legend>Why must temperature be in kelvin when you use these laws?</legend>
+        <ul>
+          <li><label><input type="radio" name="q2" value="absolute" data-correct> Because volume and pressure are proportional to absolute temperature, which starts at absolute zero</label><p class="why" data-why>The laws are proportionalities, so the temperature scale must start at zero where the gas would have no thermal motion. That is the kelvin scale.</p></li>
+          <li><label><input type="radio" name="q2" value="bigger"> Because kelvin numbers are larger, so they are more accurate</label><p class="why" data-why>The size of the numbers doesn't make them more accurate. Doubling 10 °C to 20 °C does not double the volume, because 10 °C is not half as hot as 20 °C.</p></li>
+          <li><label><input type="radio" name="q2" value="negative"> Because Celsius temperatures cannot be negative</label><p class="why" data-why>Celsius temperatures can be negative, for example −10 °C. The real reason is that the laws need a scale that starts at absolute zero.</p></li>
+        </ul>
+      </fieldset>
+    </section>
+
+    <section data-section="science">
+      <h2>Science behind this</h2>
+      <div data-part="equation">
+        <p class="equation">PV = nRT</p>
+        <p>R = 8.314 J mol⁻¹ K⁻¹. With P in kilopascals and V in litres the equation works directly, because 1 kPa × 1 L = 1 J. Holding two of the four quantities fixed gives each law: Boyle's (PV constant), Charles's (V/T constant) and Gay-Lussac's (P/T constant).</p>
+      </div>
+      <div data-part="assumptions">
+        <h3>Assumptions</h3>
+        <ul>
+          <li>The pressure shown is computed from PV = nRT. It is not counted from particle collisions.</li>
+          <li>The drawn particles are illustrative and not to scale: their number and speed only suggest what the gas is doing.</li>
+          <li>The gas is ideal, the amount is fixed unless you change it, and temperatures are in kelvin.</li>
+        </ul>
+      </div>
+      <div data-part="limits">
+        <h3>Limits</h3>
+        <p>Real gases deviate from the ideal gas law at high pressure and low temperature.</p>
+      </div>
+      <div data-part="sources">
+        <h3>Sources</h3>
+        <p>Source to be added by the project lead</p>
+      </div>
+    </section>
+
+    <section data-section="next-steps">
+      <h2>Next steps</h2>
+      <p><a href="../ph-simulator/">pH simulator</a>: see how concentration controls the pH of acids and bases.</p>
+      <p><a href="../../">Back to all experiments</a></p>
+    </section>
+  </main>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

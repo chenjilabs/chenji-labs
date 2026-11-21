@@ -1,5 +1,5 @@
 {
-  "name": "@chenji/chem-core",
+  "name": "@chenjilabs/chem-core",
   "version": "0.0.0",
   "private": true,
   "description": "The laws of chemistry: pure, tested science models and the datasets they use.",
