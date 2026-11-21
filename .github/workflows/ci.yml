@@ -16,5 +16,3 @@ jobs:
       - run: pnpm install
       - run: pnpm test
       - run: pnpm build
-        env:
-          BASE_PATH: /${{ github.event.repository.name }}/
