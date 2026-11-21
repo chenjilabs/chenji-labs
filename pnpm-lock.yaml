@@ -16,6 +16,12 @@ importers:
 
   packages/chem-core: {}
 
+  packages/reagents:
+    dependencies:
+      '@chenji/chem-core':
+        specifier: workspace:*
+        version: link:../chem-core
+
 packages:
 
   '@emnapi/core@2.0.0-beta.2':

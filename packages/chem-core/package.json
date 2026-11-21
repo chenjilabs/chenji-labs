@@ -6,6 +6,7 @@
   "type": "module",
   "exports": {
     "./elements": "./src/elements.js",
+    "./formula": "./src/formula.js",
     "./data/elements.json": "./data/elements.json"
   },
   "scripts": {
