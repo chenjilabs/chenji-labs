@@ -1,10 +1,10 @@
 // Pure chemistry logic. No DOM here, so it can be tested with `node --test`.
 // Assumes 25 °C (Kw = 1e-14) and a single acid or base in pure water.
-import { reagent } from '@chenji/reagents';
+import { reagent } from '@chenjilabs/reagents';
 
 export const KW = 1e-14;
 
-// The substances offered, by id in the chemical store (@chenji/reagents).
+// The substances offered, by id in the chemical store (@chenjilabs/reagents).
 export const SUBSTANCE_IDS = ['hcl', 'ch3cooh', 'naoh', 'nh3-aq'];
 
 // k is Ka for a weak acid and Kb for a weak base. The store gives pKa of the

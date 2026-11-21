@@ -1,4 +1,4 @@
-# @chenji/chem-core
+# @chenjilabs/chem-core
 
 The laws of chemistry: pure, tested functions and the datasets they use. In the [lab model](../../docs/roadmap.md#the-lab-model) this is the part that knows the science. It never touches the page, so everything here runs unchanged in Node tests.
 
@@ -30,7 +30,7 @@ Conventions:
 Use it from code:
 
 ```js
-import { ELEMENTS, element, atomicWeight } from '@chenji/chem-core/elements';
+import { ELEMENTS, element, atomicWeight } from '@chenjilabs/chem-core/elements';
 
 element('Fe');           // { z: 26, symbol: 'Fe', name: 'Iron', mass: 55.845, ... }
 element(26).symbol;      // 'Fe'
@@ -40,7 +40,7 @@ element(26).symbol;      // 'Fe'
 ## Formulas: [`src/formula.js`](src/formula.js)
 
 ```js
-import { parseFormula, molarMass, toDisplay } from '@chenji/chem-core/formula';
+import { parseFormula, molarMass, toDisplay } from '@chenjilabs/chem-core/formula';
 
 parseFormula('Al2(SO4)3');  // Map { Al → 2, S → 3, O → 12 }
 molarMass('CuSO4·5H2O');    // 249.677 g/mol (not rounded; round for display)

@@ -1,5 +1,5 @@
 {
-  "name": "@chenji/reagents",
+  "name": "@chenjilabs/reagents",
   "version": "0.0.0",
   "private": true,
   "description": "The chemical store: substance data, appearance, acid-base and indicator data, and hazard pictograms.",
@@ -12,6 +12,6 @@
     "test": "node --test"
   },
   "dependencies": {
-    "@chenji/chem-core": "workspace:*"
+    "@chenjilabs/chem-core": "workspace:*"
   }
 }

@@ -10,7 +10,7 @@ importers:
 
   apps/ph-simulator:
     dependencies:
-      '@chenji/reagents':
+      '@chenjilabs/reagents':
         specifier: workspace:*
         version: link:../../packages/reagents
     devDependencies:
@@ -22,9 +22,11 @@ importers:
 
   packages/reagents:
     dependencies:
-      '@chenji/chem-core':
+      '@chenjilabs/chem-core':
         specifier: workspace:*
         version: link:../chem-core
+
+  packages/units: {}
 
 packages:
 

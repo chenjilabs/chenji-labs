@@ -2,7 +2,7 @@
 // display formula are computed by chem-core, never stored.
 // Pure: no DOM, no browser APIs, so it runs unchanged in Node tests.
 import data from '../data/reagents.json' with { type: 'json' };
-import { molarMass, toDisplay } from '@chenji/chem-core/formula';
+import { molarMass, toDisplay } from '@chenjilabs/chem-core/formula';
 
 const deepFreeze = (value) => {
   if (value && typeof value === 'object') {

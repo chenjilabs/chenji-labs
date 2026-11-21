@@ -1,4 +1,4 @@
-# @chenji/reagents
+# @chenjilabs/reagents
 
 The chemical store from the [lab model](../../docs/roadmap.md#the-lab-model): one entry per bottle on the shelf. Instruments and the bench read substances from here; experiments list the reagent ids they use in `app.json`, and the build will reject an id that isn't in the store.
 
@@ -26,7 +26,7 @@ It depends only on `chem-core` (and `units` once that exists). It is pure, with 
 ## Use it from code
 
 ```js
-import { REAGENTS, reagent, hasReagent, GHS } from '@chenji/reagents';
+import { REAGENTS, reagent, hasReagent, GHS } from '@chenjilabs/reagents';
 
 reagent('h2so4').formulaDisplay;           // 'H₂SO₄'
 reagent('h2so4').molarMass;                // 98.072 (g/mol)

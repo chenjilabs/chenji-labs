@@ -20,7 +20,7 @@ test('diluting a weak acid 10x changes pH by about 0.5', () => {
   near(d, 0.5, 0.02);
 });
 
-// The substances now come from the chemical store (@chenji/reagents).
+// The substances now come from the chemical store (@chenjilabs/reagents).
 test('substances come from the store, with names and display formulas', () => {
   assert.deepEqual(SUBSTANCES.map((s) => s.id), ['hcl', 'ch3cooh', 'naoh', 'nh3-aq']);
   assert.equal(by('ch3cooh').name, 'Ethanoic acid');
