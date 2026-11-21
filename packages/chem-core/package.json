@@ -1,0 +1,14 @@
+{
+  "name": "@chenji/chem-core",
+  "version": "0.0.0",
+  "private": true,
+  "description": "The laws of chemistry: pure, tested science models and the datasets they use.",
+  "type": "module",
+  "exports": {
+    "./elements": "./src/elements.js",
+    "./data/elements.json": "./data/elements.json"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
