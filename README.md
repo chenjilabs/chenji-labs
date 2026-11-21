@@ -33,6 +33,8 @@ This copies `apps/_template` to `apps/gas-laws`. Fill in `app.json` (it feeds th
 apps/
   _template/      copied by `pnpm new-app` (never built)
   ph-simulator/   one folder per experiment
+packages/
+  chem-core/      science models and datasets (elements); no page code
 scripts/          build-all and new-app helpers
 .github/          CI, deploy, PR and issue templates, CODEOWNERS
 ```

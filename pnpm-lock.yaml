@@ -14,6 +14,8 @@ importers:
         specifier: ^8.3.8
         version: 8.3.8
 
+  packages/chem-core: {}
+
 packages:
 
   '@emnapi/core@2.0.0-beta.2':
