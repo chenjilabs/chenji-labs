@@ -1,6 +1,9 @@
 {
   "title": "pH simulator",
   "summary": "Change the concentration of an acid or base and see the pH and indicator colour.",
-  "level": "Secondary school",
+  "kind": "explorer",
+  "level": "senior-secondary",
+  "step": 3,
+  "prerequisites": [],
   "tags": ["acids and bases", "pH", "strong and weak"]
 }
